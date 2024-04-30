@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather app</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap/css/bootstrap.min.css')}}"/>
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap/css/style.css')}}"/>
+</head>
+<body>
+    <center>
+    <div>
+        <h3>WEATHER APP</h3>
+    <form class="fom1" action="/" method="post" >
+        <label>Enter your city</label>
+        <input type="text" placeholder="enter your city" name='city' required/>
+        <input class="btn btn-primary" type="submit"/>
+    </form>
+    {% if city %}
+    <div class="card card1" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{city}}</h5>
+          <p class="card-text">{{temp}}</p>
+          <p class="card-text">{{weather}}</p>
+          <img src="http://openweathermap.org/img/w/{{icon}}.png"/>
+          <p class="card-text">MIN Temp:{{min_temp}}&deg;c</p>
+          <p class="card-text">Max Temp:{{max_temp}}&deg;c</p>
+        </div>
+      </div>
+      {% endif %}
+</div>
+</center>
+
+
+    <script src="{{url_for('static',filename='bootstrap/css/bootstrap.min.js')}}"></script>
+</body>
+</html>
